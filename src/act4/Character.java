@@ -1,4 +1,6 @@
-package act3;
+package act4;
+import act3.GenderType;
+import act3.Weapon;
 
 public class Character {
 	private String name;
@@ -27,7 +29,7 @@ public class Character {
 	}
 
 	public Weapon getWeapon() {
-		return this.weapon;
+		return weapon;
 	}
 
 	public void setWeapon(Weapon weapon) {
@@ -68,9 +70,25 @@ public class Character {
 	
 	public void addExp(int exp) {
 		this.exp += exp;
+		if(this.exp >= 100) {
+			this.level++;
+			this.exp = 0;
+		}
 	}
 	
 	public void levelUp() {
 		this.level++;
+	}
+	
+	public void getCondition() {
+		if(this.hp <= 0) {
+			System.out.println("返事がない、ただの屍のようだ");
+		}else if(this.hp <= 10) {
+			System.out.println("もうダメ・・・");
+		}else if(this.hp <= 50) {
+			System.out.println("もうちょっとでやばそう");
+		}else{
+			System.out.println("まだまだ大丈夫！");
+		}
 	}
 }
